@@ -20,7 +20,7 @@ export const PlatformAgnosticErrors = {
     code: 'UNSUPPORTED_PLATFORM',
     errorCode: 27,
     documentation: 'https://gihub.com/elliotmjackson/expo-app-integrity',
-    detail: `The current platform is not supported by this library. Only 'ios' and 'android' are supported.`,
+    detail: `The current platform is not supported by this library. Only 'android' is supported.`,
     userFriendlyMessage: 'App integrity verification failed.',
     resolution: 'Use this library only on iOS and Android.',
     resolutionType: ErrorResolutionTypes.DEVELOPER_ACTION_REQUIRED,
