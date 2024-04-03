@@ -1,53 +1,11 @@
-import * as Device from 'expo-device'
-import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 import IntegrityModule from './IntegrityModule'
-import { SECURE_STORAGE_KEYS } from './config'
 import {
-  iOSAppAttestErrors,
   AndroidIntegrityErrors,
   unhandledException,
   PlatformAgnosticErrors,
 } from './errors'
-
-/** iOS Only */
-const generateKey = async (): Promise<string | never> =>
-  await IntegrityModule.generateKey()
-
-const iOSAttestKey = async (challenge: string): Promise<string | never> => {
-  if (!Device.isDevice) throw iOSAppAttestErrors.EXECUTED_IN_SIMULATOR
-
-  try {
-    // Check secure storage for a key identifier
-    const secureStorageValue = await SecureStore.getItemAsync(
-      SECURE_STORAGE_KEYS.INTEGRITY_KEY_IDENTIFIER,
-    )
-
-    // Generate a key if one doesn't exist in secure storage
-    const keyIdentifier = secureStorageValue ?? (await generateKey())
-
-    // Save the key identifier to secure storage if it didn't originally exist
-    if (!secureStorageValue)
-      await SecureStore.setItemAsync(
-        SECURE_STORAGE_KEYS.INTEGRITY_KEY_IDENTIFIER,
-        keyIdentifier,
-      )
-
-    const attestationResult = await IntegrityModule.attestKey(
-      keyIdentifier,
-      challenge,
-    )
-
-    return attestationResult
-  } catch (error) {
-    const errorCode =
-      error.message.split(' ')[error.message.split(' ').length - 1]
-
-    if (!iOSAppAttestErrors[errorCode]) throw unhandledException(error.message)
-    throw iOSAppAttestErrors[errorCode]
-  }
-}
 
 const androidRequestIntegrityVerdict = async (
   challenge: string,
@@ -165,8 +123,6 @@ export async function attestKey(
   cloudProjectNumber?: number,
 ): Promise<string | never> {
   switch (Platform.OS) {
-    case 'ios':
-      return await iOSAttestKey(challenge)
     case 'android':
       if (!cloudProjectNumber)
         throw AndroidIntegrityErrors.CLOUD_PROJECT_NUMBER_IS_INVALID
