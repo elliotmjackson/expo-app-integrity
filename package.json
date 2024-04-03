@@ -29,10 +29,10 @@
   "license": "MIT",
   "homepage": "https://github.com/elliotmjackson/expo-app-integrity#readme",
   "dependencies": {
-    "expo": "^50.0.14",
-    "expo-device": "^5.9.3",
-    "expo-secure-store": "^12.8.1",
-    "react-native": "^0.73.6"
+    "expo": "~50.0.14",
+    "expo-device": "~5.9.3",
+    "expo-secure-store": "~12.8.1",
+    "react-native": "~0.73.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
