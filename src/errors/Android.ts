@@ -273,7 +273,7 @@ export const AndroidIntegrityErrors: { [code: string]: AppIntegrityError } = {
   INVALID_INTEGRITY_TOKEN_RESPONSE: {
     code: 'INVALID_INTEGRITY_TOKEN_RESPONSE',
     errorCode: 19,
-    documentation: 'https://gihub.com/jeffDevelops/expo-app-integrity',
+    documentation: 'https://gihub.com/elliotmjackson/expo-app-integrity',
     detail:
       'Google Play Integrity API did not return an error, but the integrity token was null',
     userFriendlyMessage:
@@ -285,7 +285,7 @@ export const AndroidIntegrityErrors: { [code: string]: AppIntegrityError } = {
   INVALID_IS_SUPPORTED_API: {
     code: 'INVALID_IS_SUPPORTED_API',
     errorCode: 20,
-    documentation: 'https://gihub.com/jeffDevelops/expo-app-integrity',
+    documentation: 'https://gihub.com/elliotmjackson/expo-app-integrity',
     detail:
       '`AppIntegrity.isSupported()` is only exposed on iOS, but was called on Android.',
     userFriendlyMessage:
