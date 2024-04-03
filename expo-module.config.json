@@ -1,9 +1,9 @@
 {
-  "platforms": ["android"],
+  "platforms": ["ios", "android"],
   "ios": {
-    "modules": ["ExpoAppIntegrityModule"]
+    "modules": ["IntegrityModule"]
   },
   "android": {
-    "modules": ["expo.modules.integrity.ExpoAppIntegrityModule"]
+    "modules": ["expo.modules.integrity.IntegrityModule"]
   }
 }
