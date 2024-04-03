@@ -4,8 +4,7 @@
   "description": "Cross-platform app attestation module for Expo",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "homepage": "https://github.com/elliotmjackson/expo-app-integrity",
-  "scripts": {
+  "homepage": "https://github.com/elliotmjackson/expo-app-integrity#readme",  "scripts": {
     "build": "expo-module build",
     "clean": "expo-module clean",
     "lint": "expo-module lint",
