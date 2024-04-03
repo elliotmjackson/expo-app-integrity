@@ -12,11 +12,17 @@ public class IntegrityModule: Module {
         AsyncFunction("attestKey") { (
             keyIdentifier: String,
             challenge: String
-        ) async throws -> String in }
+        ) async throws -> String in
+            // TODO: Implement your logic here
+            return ""
+        }
 
         AsyncFunction("generateAssertion") { (
             keyIdentifier: String,
             requestJSON: String
-        ) async throws -> String in }
+        ) async throws -> String in
+            // TODO: Implement your logic here
+            return ""
+        }
     }
 }
