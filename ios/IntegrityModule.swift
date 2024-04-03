@@ -2,7 +2,7 @@ import CryptoKit
 import DeviceCheck
 import ExpoModulesCore
 
-@available(iOS 14.0, *)
+@available(iOS 13.4, *)
 public class IntegrityModule: Module {
 
     private let service: DCAppAttestService = DCAppAttestService.shared
